@@ -1,5 +1,5 @@
 from django.contrib import admin
-from market.posts.models import Category, Post
+from .models import Category, Post
 
 # Register your models here.
 
