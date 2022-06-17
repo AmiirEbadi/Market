@@ -1,11 +1,14 @@
-from pyexpat import model
 from django.db import models
 from django.conf import settings
 
 # Create your models here.
+STATUS_CHOICES = (
+    ('draft', 'Draft'),
+    ('published', 'Published'),
+)
+
 
 class Category(models.Model):
-
     title = models.CharField(max_length=50, verbose_name="title", null=True, blank=True,)
 
     class Meta:
@@ -22,6 +25,9 @@ class Post(models.Model):
     body = models.TextField(verbose_name="body", null=True, blank=True)
     created_at = models.DateTimeField(verbose_name="created at", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="updated at", auto_now=True)
+    image = models.ImageField(verbose_name="image", null=True, blank=True, upload_to="images")
+    price = models.DecimalField(verbose_name="price", max_digits=10, decimal_places=0, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     category = models.ManyToManyField(
         Category,
         verbose_name="category",
