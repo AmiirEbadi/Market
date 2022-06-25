@@ -62,7 +62,7 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="single_product_item">
                                     <img src="{{ post.image.url }}" alt="#" class="img-fluid">
-                                    <h3> <a href="single-product.html"> {{ post.title }} </a> </h3>
+                                    <h3> <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a> </h3>
                                     {% if post.price %}
                                         <p> قیمت : {{post.price}}  </p>
                                     {% else %}
