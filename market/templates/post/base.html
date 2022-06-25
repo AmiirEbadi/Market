@@ -47,48 +47,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">صفحه اصلی</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">درباره ما</a>
-                                </li>
+                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       محصولات
+                                        دسته بندی ها
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="product_list.html"> لیست محصولات</a>
-                                        <a class="dropdown-item" href="single-product.html">جزئیات محصولات</a>
-                                        
+                                        {% for category in categories_list %}
+                                        <a class="dropdown-item" href="{{category.get_absolute_url}}">{{category.title}}</a>
+                                        {% endfor %}
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        صفحات
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="login.html"> 
-                                            ورود
-                                            
-                                        </a>
-                                        <a class="dropdown-item" href="checkout.html">چک کردن محصولات</a>
-                                        <a class="dropdown-item" href="cart.html">سبد خرید</a>
-                                        <a class="dropdown-item" href="confirmation.html">تایید نهایی</a>
-                                        <a class="dropdown-item" href="elements.html">جزئیات</a>
-                                    </div>
+                                {% if user.is_authenticated %}
+                               <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account:post_create' %}">افزودن آگهی</a>
                                 </li>
-                                
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        وبلاگ
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="blog.html"> وبلاگ</a>
-                                        <a class="dropdown-item" href="single-blog.html">صفحه داخلی وبلاگ</a>
-                                    </div>
-                                </li>
-                                
+                                {% endif %}
                                 <li class="nav-item">
                                         {% if user.is_authenticated %}
                                         <a class="nav-link" href="{% url 'account:signout' %}">
@@ -96,11 +71,12 @@
                                         </a>
                                         {% else %}
                                         <a class="nav-link" href="{% url 'account:signin' %}">
-                                            ورود
+                                            ورود / ثبت نام
                                         </a>
                                         {% endif %}
                                     </a>
                                 </li>
+
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex align-items-center">
@@ -131,7 +107,7 @@
 
     
     <!--::footer_part start::-->
-    <footer class="footer_part">
+    <footer class="footer_part" style="clear: both;">
         <div class="footer_iner">
             <div class="container">
                 <div class="row justify-content-between align-items-center">

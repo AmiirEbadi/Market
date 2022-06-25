@@ -17,21 +17,21 @@
   </div>
 </section>
 
-  <form class="w-full max-w-lg col-lg-6" method="post" style="margin: 30px;">
+  <form class="w-full max-w-lg col-lg-6" method="post" style="padding: 15px;border-radius: 10px; margin: 30px; float: left; background-color: #dec6e3;">
     {% csrf_token %}
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name" style="width:150px;">
           نام
         </label>
-        {{form.first_name|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}}
+        {{profile_form.first_name|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}}
         
       </div>
       <div class="w-full md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name" style="width:150px;">
           نام خانوادگی
         </label>
-        {{form.last_name|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
+        {{profile_form.last_name|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -39,7 +39,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password" style="width:150px;">
           ایمیل
         </label>
-        {{form.email|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
+        {{profile_form.email|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
         <p class="text-gray-600 text-xs italic"></p>
       </div>
       
@@ -49,7 +49,7 @@
         <label style="width:150px;" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           تلفن همراه
         </label>
-        {{form.phone_number|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
+        {{profile_form.phone_number|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
         <p class="text-gray-600 text-xs italic"></p>
       </div>
      
@@ -60,37 +60,28 @@
   </form>
 
 
-  <form class="w-full max-w-lg col-lg-6" method="post" style="margin: 30px;">
+  <form class="w-full max-w-lg col-lg-6" method="post" style=" margin: 30px;">
     {% csrf_token %}
     <div class="flex flex-wrap -mx-3 mb-6">
       
       <div class="w-full md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+        <label style="width:150px;" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
           شهر
         </label>
-        {{form2.city|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
+        {{address_form.city|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          آدرس
+        <label style="width:150px;" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          منطقه
         </label>
-        {{form2.address|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
+        {{address_form.district|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
         <p class="text-gray-600 text-xs italic"></p>
       </div>
       
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          کد پستی
-        </label>
-        {{form2.zipcode|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"}}
-        <p class="text-gray-600 text-xs italic"></p>
-      </div>
-     
-      <button class="bg-green-500 hover:bg-blue-700 text-white font-bold p-2 border border-blue-700 rounded m-auto" type="submit">
+    </div> 
+      <button name="address" style="background-color: rgb(95, 213, 95);" class="bg-green-500 hover:bg-blue-700 text-white font-bold p-2 border border-blue-700 rounded m-auto" type="submit">
          ویرایش
       </button >
     </div>

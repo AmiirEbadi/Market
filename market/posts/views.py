@@ -1,8 +1,9 @@
-from unicodedata import category
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
-    DetailView
+    DetailView,
+    CreateView
 )
 from .models import (
     Category,
@@ -52,3 +53,14 @@ class PostsCategoryListView(ListView):
         context = super().get_context_data(**kwargs)
         context['category'] = get_object_or_404(Category, slug=self.kwargs['slug'])
         return context
+
+
+
+# class PostCreateView(LoginRequiredMixin,CreateView):
+#     template_name = "post/post_create.html"
+#     model = Post
+#     fields = ['title', 'body', 'image', 'price', 'category']
+
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         return super().form_valid(form)
