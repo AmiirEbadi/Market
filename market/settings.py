@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--8+&e%g4*p=f7y426^ukm%olwypmji_=lplf+%bxw935o8c%gc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
             'NAME': 'market',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
             'USER': 'postgres',
-            'PASSWORD': 'amir21khan',
+            'PASSWORD': 'amir2121',
             'HOST': 'localhost',         
             'PORT': '5432',   
     }
@@ -140,9 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'')
 
 STATIC_ROOT = BASE_DIR.joinpath('static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'')
-]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
