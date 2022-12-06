@@ -4,7 +4,7 @@ market in Django
 The first thing to do is to clone the repository:
 
 ```sh
-$ git clone https://github.com/gocardless/sample-django-app.git
+$ git clone https://github.com/AmiirEbadi/Market.git
 $ cd sample-django-app
 ```
 
