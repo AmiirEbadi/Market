@@ -5,7 +5,7 @@ The first thing to do is to clone the repository:
 
 ```sh
 $ git clone https://github.com/AmiirEbadi/Market.git
-$ cd sample-django-app
+$ cd Market
 ```
 
 Create a virtual environment to install dependencies in and activate it:
