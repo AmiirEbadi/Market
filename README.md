@@ -34,7 +34,7 @@ Once making the migrations has finished:
 (venv)$ python manage.py runserver
 ```
 
-Now you can access it by:
+Now you can access it by 
 127.0.0.1:8000
 or
 localhost:8000
